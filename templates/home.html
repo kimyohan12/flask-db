@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Smart Factory with Yolov5 Object Detection</title>
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}"> -->
+</head>
+<body>
+	<div class="container">
+		<h1>Smart Factory with Yolov5 Object Detection</h1>
+		<form action="{{ url_for('detect_objects') }}" method="POST" enctype="multipart/form-data">
+			<input type="file" name="image" accept="image/*">
+			<button type="submit">Detect objects</button>
+		</form>
+		<div class="col">
+			<h2>Original Image</h2>
+			<div id="image-container">
+				<img id="input-image" src="{{ input_image_path }}" alt="Input Image">
+			</div>
+		</div>
+		<div class="col">
+			<h2>Object Detection Results</h2>
+			<div id="detection-container">
+				<img id="output-image" src="{{ output_image_path }}" alt="Output Image">
+				<table>
+					<thead>
+						<tr>
+							<th>Class</th>
+							<th>Confidence</th>
+							<th>X</th>
+							<th>Y</th>
+							<th>Width</th>
+							<th>Height</th>
+						</tr>
+					</thead>
+					<tbody id="detection-table-body">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

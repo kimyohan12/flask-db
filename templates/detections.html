@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detections</title>
+</head>
+<body>
+	<img src="data:image/png;base64,{{ img_base64 }}" />
+	{% if detections %}
+		<ul>
+		{% for detection in detections %}
+			<li>{{ detection }}</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No objects detected.</p>
+	{% endif %}
+</body>
+</html>
